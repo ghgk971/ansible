@@ -1,3 +1,32 @@
-1. 파일 생성 yaml 작성
+1. 파일 생성 yaml (# touch 명령으로 파일 생성과 동일)
   - # vi ~/playbook/touch.yaml
-    
+    ---
+    - hosts: all
+      tasks:
+      - name: Create file
+        file:
+          path: /root/test_file
+          state: touch
+          
+2. 파일 작성 yaml (# vi or # echo >> 로 내용 작성과 동일) 
+  - # vi ~/playbook/create_file.yaml
+    ---
+    - hosts: all
+      tasks:
+      - name: Create yum local repository file
+        copy:
+          dest: "/etc/yum.repos.d/local.repo"
+          content: |
+            [local]
+            name=local
+            baseurl=file:///mnt
+            gpgcheck=0
+            enabled=1
+            
+            [local-HA]
+            name=local-HA
+            baseurl=file:///mnt/addons/HighAvailability
+            gpgcheck=0
+            enabled=1
+            
+          
