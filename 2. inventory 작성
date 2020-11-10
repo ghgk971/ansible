@@ -1,4 +1,4 @@
-1. inventory 작성 방법
+1. inventory 작성 방법 (단일 or 임시 사용)
   - # vi ~/playbook/hosts
     100.100.100.31 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=rplinux ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
     100.100.100.32 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=rplinux ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
