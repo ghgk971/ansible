@@ -1,0 +1,16 @@
+1. inventory 작성 방법
+  - # vi ~/playbook/hosts
+    100.100.100.31 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=rplinux ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+    100.100.100.32 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=rplinux ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+    
+    [참조]
+    - ansible_connection= : 접속 방법
+    - ansible_ssh_user= : ssh 접속 계정
+    - ansible_ssh_pass= : ssh 패스워드
+    - ansible_ssh_extra_args='-o StrictHostKeyChecking=no' : ssh known_host 확인 여부
+    - https://qastack.kr/server/628989/how-to-set-default-ansible-username-password-for-ssh-connection
+    - https://stackoverflow.com/questions/23074412/how-to-set-host-key-checking-false-in-ansible-inventory-file
+
+2. 기본 파일
+  - /etc/ansible/hosts
+  - # ansible-playbook 실행 시 -i 옵션을 추가하여 인벤토리 지정 가능
